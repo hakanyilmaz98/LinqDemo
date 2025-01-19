@@ -14,6 +14,10 @@ List<Employee> employees = [
     new() { Name = "Linda", Department = Department.Marketing, Salary = 60000 },
     ];
 
-var names = employees.Select(x => x.Name);
+var result = employees.Where(x => x.Name.StartsWith('P')).Select(x => x.Salary);
+//var result = employees.Where(x => x.Department == Department.HR);
+result.Dump();
 
-names.Dump();
+//var names = employees.Select(x => x.Name);
+
+//names.Dump();
