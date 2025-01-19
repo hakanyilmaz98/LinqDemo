@@ -1,4 +1,5 @@
-﻿using LinqDemo;
+﻿using Dumpify;
+using LinqDemo;
 
 List<Employee> employees = [
     new() { Name = "John", Department = Department.HR, Salary = 50000 },
@@ -12,3 +13,7 @@ List<Employee> employees = [
     new() { Name = "Robert", Department = Department.IT, Salary = 82000 },
     new() { Name = "Linda", Department = Department.Marketing, Salary = 60000 },
     ];
+
+var names = employees.Select(x => x.Name);
+
+names.Dump();
