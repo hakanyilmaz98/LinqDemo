@@ -14,9 +14,13 @@ List<Employee> employees = [
     new() { Name = "Linda", Department = Department.Marketing, Salary = 60000 },
     ];
 
-var result = employees.Where(x => x.Name.StartsWith('P')).Select(x => x.Salary);
-//var result = employees.Where(x => x.Department == Department.HR);
+var result = employees.GroupBy(x => x.Department).ToDictionary(g => g.Key, g => g.Count())
+    .Where(x => x.Value < 3);
+//var result = employees.GroupBy(x => x.Department).ToDictionary(g => g.Key);
 result.Dump();
+
+//var result = employees.Where(x => x.Name.StartsWith('P')).Select(x => x.Salary);
+//var result = employees.Where(x => x.Department == Department.HR);
 
 //var names = employees.Select(x => x.Name);
 
