@@ -1,23 +1,21 @@
-﻿using LinqDemo;
+﻿using Dumpify;
+using LinqDemo;
 
 List<Employee> employees = [
     new() { Name = "John", Department = Department.HR, Salary = 50000 },
     new() { Name = "John", Department = Department.IT, Salary = 75000 },
     new() { Name = "John", Department = Department.Finance, Salary = 65000 },
     new() { Name = "John", Department = Department.IT, Salary = 80000 },
-    new() { Name = "Sara", Department = Department.HR, Salary = 45000 },
-    new() { Name = "Sara", Department = Department.Marketing, Salary = 55000 },
-    new() { Name = "Sara", Department = Department.Sales, Salary = 70000 },
-    new() { Name = "Sara", Department = Department.Finance, Salary = 67000 },
-    new() { Name = "Sara", Department = Department.IT, Salary = 82000 },
-    new() { Name = "Sara", Department = Department.Marketing, Salary = 60000 },
+    new() { Name = "John", Department = Department.HR, Salary = 45000 },
+    new() { Name = "John", Department = Department.Marketing, Salary = 55000 },
+    new() { Name = "James", Department = Department.Sales, Salary = 70000 },
+    new() { Name = "James", Department = Department.Finance, Salary = 67000 },
+    new() { Name = "James", Department = Department.IT, Salary = 82000 },
+    new() { Name = "James", Department = Department.Marketing, Salary = 60000 },
     ];
 
-//var result = employees.Select(x => x.Name).Distinct();
-//result.Dump();
-
-//var result = employees.OrderByDescending(x => x.Salary).Skip(7).Take(3);
-//var result = employees.OrderByDescending(x => x.Salary).Take(3);
+var result = employees.DistinctBy(x => x.Name).Select(x => x.Name);
+result.Dump();
 
 //var result = employees.Index();
 
