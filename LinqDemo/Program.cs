@@ -14,10 +14,19 @@ List<Employee> employees = [
     new() { Name = "Linda", Department = Department.Marketing, Salary = 60000 },
     ];
 
-var result = employees.GroupBy(x => x.Department).ToDictionary(g => g.Key, g => g.Count())
-    .Where(x => x.Value < 3);
-//var result = employees.GroupBy(x => x.Department).ToDictionary(g => g.Key);
+var result = employees.Sum(x => x.Salary);
+//var result = employees.Min(x => x.Salary);
+//var result = employees.Max(x => x.Salary);
+//var result = employees.Average(x => x.Salary);
 result.Dump();
+
+//var result = employees.All(x => x.Salary >= 30_000);
+//var result = employees.Any(x => x.Salary < 20_000);
+//var result = employees.Any();
+
+//var result = employees.GroupBy(x => x.Department).ToDictionary(g => g.Key, g => g.Count())
+//    .Where(x => x.Value < 3);
+//var result = employees.GroupBy(x => x.Department).ToDictionary(g => g.Key);
 
 //var result = employees.Where(x => x.Name.StartsWith('P')).Select(x => x.Salary);
 //var result = employees.Where(x => x.Department == Department.HR);
